@@ -8,6 +8,8 @@ class Goods {
 
     setup() {
         ellipseMode(RADIUS);
+        this.width = random(100);
+        this.Height = random(60);
         // Set the starting position of the shape
 
     };
@@ -16,7 +18,7 @@ class Goods {
         //color goods
         fill(0, 0, random(25));
         fill(0, 0, random(255));
-        ellipse(this.x, this.y, random(100), random(60));
+        ellipse(this.x, this.y, random(60,100), random(40,110));
 
         //motion (random)
         this.y -= random(7, -7);
@@ -44,7 +46,7 @@ class GoodsGreen extends Goods {
         //color goods
         fill(random(25), 255, 0);
         fill(0, 255, random(255));
-        ellipse(this.x, this.y, random(100), random(60));
+        ellipse(this.x, this.y, random(60,100), random(50,120));
 
         //motion (random)
         this.y -= random(7, -7);
@@ -69,7 +71,7 @@ class GoodsRed extends Goods {
         //color goods
         fill(255, random(255), 0);
         fill(255, 0, random(255));
-        ellipse(this.x, this.y, random(100), random(60));
+        ellipse(this.x, this.y, random(60, 100), random(60, 130));
 
         //motion (random)
         this.y -= random(7, -7);

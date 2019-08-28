@@ -4,7 +4,7 @@
 
  function setup() {
      createCanvas(innerWidth, innerHeight);
-
+     game.setup()
 
  }
 

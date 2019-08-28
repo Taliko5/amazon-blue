@@ -3,13 +3,13 @@ class Player {
         this.x = innerWidth / 2 - 50;
         this.y = 50;
         this.gravity = 0.4;
-        
+
     }
 
     setup() {
-        preload();
-             width = playerImg.width / 6;
-             height = playerImg.height / 6;
+
+        this.width = playerImg.width / 6;
+        this.height = playerImg.height / 6;
 
     }
 
