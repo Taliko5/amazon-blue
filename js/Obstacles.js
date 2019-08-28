@@ -1,33 +1,34 @@
 class Obstacles {
-    constructor(x, y) {
-        this.x = this.setRandomPosition(); //innerWidth / 4;
+    constructor(pos = 0) {
+        this.x = this.setRandomPosition() + pos; //innerWidth / 4;
         this.y = innerHeight;
-        this.sizeW = 200;
-        this.sizeH = 80
-        this.gravity = 0.4;
+        this.switch = 0;
     }
-
 
     setRandomPosition() {
 
         return (bg.leftx - 20) + Math.floor(Math.random() * (bg.rightx - bg.leftx - 150))
 
     }
+    setup() {
+        preload();
+    }
+
 
     draw() {
-
         this.speedUp();
-        fill('lightyellow')
-        strokeWeight(3)
-        rect(this.x, this.y, this.sizeW, this.sizeH)
-        this.y -= 4;
-
+        // let imageA = amazonBox.forEach(box);
+        image(amazonBox, this.x, this.y, amazonBox.width / 3, amazonBox.height / 3);
+        // fill('lightyellow');
+        // strokeWeight(3);
+        // rect(this.x, this.y, this.sizeW, this.sizeH, );
+        this.y -= 3;
 
     }
 
     speedUp() {
         if (keyIsDown(40))
-            this.y -= 5;
+            this.y -= 3;
 
     }
 

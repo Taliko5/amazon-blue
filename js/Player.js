@@ -1,41 +1,44 @@
 class Player {
     constructor() {
         this.x = innerWidth / 2 - 50;
-        this.y = 200;
-        this.x2 = (innerWidth / 2 - 50) + 100
+        this.y = 50;
         this.gravity = 0.4;
-        this.x
+        
     }
 
     setup() {
-
+        preload();
+             width = playerImg.width / 6;
+             height = playerImg.height / 6;
 
     }
 
     draw() {
         this.move();
-        fill('red')
-        rect(this.x, this.y, 100, 100)
-
+        // fill('red')
+        // rect(this.x, this.y, 100, 100)
+        image(playerImg, this.x, this.y, playerImg.width / 6, playerImg.height / 6);
 
     }
 
 
 
     move() {
+        // go left
         if (keyIsDown(37) && this.x > innerWidth / 4 + 5)
             this.x -= 5;
-
-
+        // go right
         if (keyIsDown(39) && (this.x + 100) < innerWidth * 3 / 4 - 5)
             this.x += 5;
-    
-          if (keyIsDown(40))
-              this.y += 0.5;
+        // go up
+        if (keyIsDown(40))
+            this.y += 0.2;
+        // go down
+        if (keyIsDown(38))
+            this.y -= 0.2;
 
-              if (keyIsDown(38))
-                  this.y -= 0.5;
-                 
+
+
 
     }
 
