@@ -19,6 +19,9 @@ class Player {
         // rect(this.x, this.y, 100, 100)
         image(playerImg, this.x, this.y, playerImg.width / 6, playerImg.height / 6);
 
+        // fill('white')
+        // triangle(300, 90, 330, 10, 360, 90);;
+
     }
 
 

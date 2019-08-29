@@ -7,7 +7,7 @@ class Game {
         this.getPoint = 0;
         this.timeLimit = 65;
         this.getPrice = 0;
-        
+
         // this.background1 = new Background();
     }
 
@@ -18,11 +18,29 @@ class Game {
         preload();
         this.player.setup();
 
+
+    }
+
+    // colision check
+    colisionBox(obj, player) {
+        // console.log(player.x, player.y, player.width, player.height)
+        if (player.x + player.width <= obj.x ||
+            obj.x + obj.width <= player.x) {
+            return false
+        }
+        if (player.y + player.height <= obj.y ||
+            obj.y + obj.height <= player.y) {
+            return false;
+        }
+
+        return true;
+
     }
 
 
     draw() {
         this.player.draw();
+
         //create goods with different colors differnt frame count
 
         if (frameCount % 90 === 0)
@@ -35,28 +53,18 @@ class Game {
         this.goods.forEach((good, index) => {
 
             good.draw()
-            // if (this.colisionBox(good, this.player))
-            //     if (good.switch === 0) {
-            //         this.goods.splice(index, 1)
-            //         this.getPrice += good.goodsPrice
-            //         good.switch === 1;
+            if (this.colisionBox(good, this.player)) {
 
-            //     }
+                // if (good.switch === 0) {
+                this.goods.splice(index, 1)
+                this.getPrice += good.goodsPrice
+                this.getPoint += 1;
+
+                // }
+            }
             if (this.goods.length > 5)
                 this.goods.splice(index, 2)
-
         })
-
-        for (let i = 0; i < this.goods.length - 1; i++) {
-            if (this.colisionBox(this.goods[i], this.player)) {
-              this.getPrice += this.goods[i].goodsPrice;
-                this.goods.splice(i, 1)
-                
-
-            }
-        }
-
-
 
         // create obstacle with random
         if (frameCount % 65 === 0) {
@@ -73,48 +81,40 @@ class Game {
 
         }
         this.obstacles.forEach((obst, idx) => {
-
             if (obst.y + obst.sizeH <= 0) {
                 this.obstacles.splice(idx, 1)
             }
             obst.draw()
+            //  colision  amazonbox
 
-            if (this.colisionBox(obst, this.player)) {}
+            let hittedBox = this.obstacles[idx].switch;
+            if (hittedBox === 0) {
+                if (this.colisionBox(obst, this.player)) {
+                    this.obstacles[idx].switch = 1
+                    this.timeLimit -= 5
 
+                }
+            }
 
         })
 
+        // return Math.parseInt(this.timeLimit)
+        //   this.obstacles.splice(idx, 1)
 
         //  colision  amazonbox
-        this.obstacles.forEach((obs, idx) => {
-            if (this.colisionBox(obs, this.player)) {
+        // this.obstacles.forEach((obs, idx) => {
+        //     if (this.colisionBox(obs, this.player)) {
 
-                this.obstacles[idx].switch = 1;
-                this.timeLimit -= 5;
-
-            }
-            // if (this.obstacles[idx].switch = 0) {
-        })
-
+        //         if(this.obstacles[idx].switch = 0){
+        //         this.timeLimit -= 5;
+        //         this.obstacles[idx].switch = 1
+        //         }
+        //     }
+        //     // if (this.obstacles[idx].switch = 0) {
         // })
-        //   if (this.obstacles[idx].intersects(this.player))
-        //       this.timeLimit -= 5;
-
-        //   this.obstacles.forEach((obj)=>{
-        //        if (this.player.x + this.player.width <= obj.x ||
-        //           obj.x + obj.width <= this.this.player.x)
-        //           this.timeLimit -= 5;
-        //       if (this.player.y + this.player.height <= obj.y ||
-        //           obj.y + obj.height <= this.player.y)
-        //           this.timeLimit -= 5;
-
-        //   })
-
 
         //side color
         rect(0, 0, innerWidth / 4, innerHeight);
-
-
         rect(innerWidth * 3 / 4, 0, innerWidth / 4, innerHeight)
 
         // time count 
@@ -132,27 +132,9 @@ class Game {
         //point and prize
         text()
 
-
-
-
     }
 
-    // colision to obstacles
-    // player right 
-    colisionBox(obj, player) {
-        // console.log(player.x, player.y, player.width, player.height)
-        if (player.x + player.width <= obj.x ||
-            obj.x + obj.width <= player.x) {
-            return false
-        }
-        if (player.y + player.height <= obj.y ||
-            obj.y + obj.height <= player.y) {
-            return false;
-        } {
-            return true;
-        }
 
-    }
 
 
 

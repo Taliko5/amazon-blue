@@ -12,7 +12,7 @@ function preload() {
     // "../img/box7.png",
     // "../img/box8.png",
     playerImg = loadImage("../img/player1.png");
-    gameOver = loadImage("../img/page02.png");
+    gameOver = loadImage("../img/page0203.png");
 
 
 }

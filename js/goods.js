@@ -1,3 +1,5 @@
+// const goodWidth;
+// const goodHeight;
 class Goods {
     constructor() {
         this.x = Math.random() * innerWidth;
@@ -8,8 +10,10 @@ class Goods {
 
     setup() {
         ellipseMode(RADIUS);
-        this.width = random(100);
-        this.Height = random(60);
+        this.width = this.goodWidth;
+        this.height = this.goodHeight;
+        // this.width = random(100);
+        // this.Height = random(60);
         // Set the starting position of the shape
 
     };
@@ -18,7 +22,10 @@ class Goods {
         //color goods
         fill(0, 0, random(25));
         fill(0, 0, random(255));
-        ellipse(this.x, this.y, random(60,100), random(40,110));
+        this.goodWidth = random(60, 100)
+        this.goodHeight = random(40, 110)
+
+        ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
         //motion (random)
         this.y -= random(7, -7);
@@ -41,12 +48,19 @@ class GoodsGreen extends Goods {
         super.setup();
         this.goodsPrice = 50;
     }
+    setup() {
+        this.width = this.goodWidth;
+        this.height = this.goodHeight;
+    }
 
     draw() {
         //color goods
         fill(random(25), 255, 0);
         fill(0, 255, random(255));
-        ellipse(this.x, this.y, random(60,100), random(50,120));
+        //size
+        this.goodWidth = random(60, 100)
+        this.goodHeight = random(50, 120)
+        ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
         //motion (random)
         this.y -= random(7, -7);
@@ -65,13 +79,21 @@ class GoodsRed extends Goods {
         super.setup();
         this.goodsPrice = 120;
     }
+    setup() {
+        this.width = this.goodWidth;
+        this.height = this.goodHeight;
+    }
+
 
     draw() {
 
         //color goods
         fill(255, random(255), 0);
         fill(255, 0, random(255));
-        ellipse(this.x, this.y, random(60, 100), random(60, 130));
+
+        this.goodWidth = random(60, 100);
+        this.goodHeight = random(60, 130);
+        ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
         //motion (random)
         this.y -= random(7, -7);
