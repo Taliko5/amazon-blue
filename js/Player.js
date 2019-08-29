@@ -8,15 +8,14 @@ class Player {
 
     setup() {
 
-        this.width = playerImg.width / 6;
-        this.height = playerImg.height / 6;
+        this.width = 346 / 6;
+        this.height = 600 / 6;
 
     }
 
     draw() {
         this.move();
-        // fill('red')
-        // rect(this.x, this.y, 100, 100)
+
         image(playerImg, this.x, this.y, playerImg.width / 6, playerImg.height / 6);
 
         // fill('white')

@@ -6,12 +6,14 @@ class Goods {
         this.y = Math.random() * innerHeight;
         this.switch = 0;
         this.goodsPrice = 30;
+        this.width = 100;
+        this.height = 100;
     };
 
     setup() {
-        ellipseMode(RADIUS);
-        this.width = this.goodWidth;
-        this.height = this.goodHeight;
+        ellipseMode(CORNER);
+        // this.width = this.goodWidth;
+        // this.height = this.goodHeight;
         // this.width = random(100);
         // this.Height = random(60);
         // Set the starting position of the shape
@@ -22,8 +24,8 @@ class Goods {
         //color goods
         fill(0, 0, random(25));
         fill(0, 0, random(255));
-        this.goodWidth = random(60, 100)
-        this.goodHeight = random(40, 110)
+        this.goodWidth = random(60, 80)
+        this.goodHeight = random(20, 90)
 
         ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
@@ -32,7 +34,7 @@ class Goods {
         if (this.y <= 1) {
             this.y = innerHeight;
         }
-        this.x += random(30, -30);
+        this.x += random(30, -30)
 
         // if (this.x <= 0 || this.x >= innerWidth) {
         //     this.x = innerWidth;
@@ -45,21 +47,20 @@ class Goods {
 class GoodsGreen extends Goods {
     constructor() {
         super();
-        super.setup();
+
         this.goodsPrice = 50;
+        this.width = 100;
+        this.height = 100;
     }
-    setup() {
-        this.width = this.goodWidth;
-        this.height = this.goodHeight;
-    }
+    setup() {}
 
     draw() {
         //color goods
         fill(random(25), 255, 0);
         fill(0, 255, random(255));
         //size
-        this.goodWidth = random(60, 100)
-        this.goodHeight = random(50, 120)
+        this.goodWidth = random(40, 60)
+        this.goodHeight = random(50, 80)
         ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
         //motion (random)
@@ -78,11 +79,11 @@ class GoodsRed extends Goods {
         super();
         super.setup();
         this.goodsPrice = 120;
+        this.width = 100;
+        this.height = 100;
     }
-    setup() {
-        this.width = this.goodWidth;
-        this.height = this.goodHeight;
-    }
+
+
 
 
     draw() {

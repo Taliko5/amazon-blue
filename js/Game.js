@@ -5,25 +5,25 @@ class Game {
         this.goods = [];
         this.obstacles = [];
         this.getPoint = 0;
-        this.timeLimit = 65;
+        this.timeLimit = 60;
         this.getPrice = 0;
 
         // this.background1 = new Background();
     }
 
+
+
+
     setup() {
-        //  background('rgb(22, 13, 120)')
-        // this.obstacles.setRandomPosition();
-        // this.goods.setup();
-        preload();
         this.player.setup();
+
 
 
     }
 
+
     // colision check
     colisionBox(obj, player) {
-        // console.log(player.x, player.y, player.width, player.height)
         if (player.x + player.width <= obj.x ||
             obj.x + obj.width <= player.x) {
             return false
@@ -37,10 +37,23 @@ class Game {
 
     }
 
+    endGame(name) {
+        startGame = false;
+        document.querySelector(name).style.display = "block";
+    }
 
     draw() {
+        if (startGame) {
+            if (!catVoice.isPlaying()) {
+                catVoice.play()
+
+            }
+        }
         this.player.draw();
 
+        // if (startGame) {
+        //     ;
+        // }
         //create goods with different colors differnt frame count
 
         if (frameCount % 90 === 0)
@@ -54,11 +67,12 @@ class Game {
 
             good.draw()
             if (this.colisionBox(good, this.player)) {
-
+                console.log("hit")
                 // if (good.switch === 0) {
                 this.goods.splice(index, 1)
                 this.getPrice += good.goodsPrice
                 this.getPoint += 1;
+                catVoice.play();
 
                 // }
             }
@@ -87,31 +101,17 @@ class Game {
             obst.draw()
             //  colision  amazonbox
 
-            let hittedBox = this.obstacles[idx].switch;
+            const hittedBox = this.obstacles[idx].switch;
             if (hittedBox === 0) {
                 if (this.colisionBox(obst, this.player)) {
+                    image(playerDameged, this.x, this.y, playerImg.width / 6, playerImg.height / 6);
+                    this.timeLimit -= 3
                     this.obstacles[idx].switch = 1
-                    this.timeLimit -= 5
-
                 }
             }
 
         })
 
-        // return Math.parseInt(this.timeLimit)
-        //   this.obstacles.splice(idx, 1)
-
-        //  colision  amazonbox
-        // this.obstacles.forEach((obs, idx) => {
-        //     if (this.colisionBox(obs, this.player)) {
-
-        //         if(this.obstacles[idx].switch = 0){
-        //         this.timeLimit -= 5;
-        //         this.obstacles[idx].switch = 1
-        //         }
-        //     }
-        //     // if (this.obstacles[idx].switch = 0) {
-        // })
 
         //side color
         rect(0, 0, innerWidth / 4, innerHeight);
@@ -126,19 +126,28 @@ class Game {
         if (frameCount % 60 == 0 && this.timeLimit > 0) {
             this.timeLimit--;
         }
-        if (this.timeLimit == 0) {
-            image(gameOver, 0, 0, gameOver.width, gameOver.height);
+
+        // game end
+        if (this.timeLimit <= 0) {
+            this.endGame('.endGame');
+            //inside the end text
+            document.querySelector('.endGame').innerHTML = `
+            <h2> Thank you, your order has been placed </h1> <p> </p> 
+            <h2> you saved ${this.getPoint} stray cats </h2> 
+            <p> <h2> your X will lose $ ${this.getPrice} </h2></p >
+             <p>
+         <button class="btn restart"> Continue Shopping ? </button> </p>
+      `
+            //when clicking the button  the game start
+            document.querySelector('.restart').onclick = () => {
+                this.timeLimit = 60;
+                document.querySelector('.endGame').style.display = "none";
+                location.reload();
+
+            }
         }
         //point and prize
-        text()
+        // text()
 
     }
-
-
-
-
-
-    // console.log(colisionBox(obstacles, player))
-
-
 }
