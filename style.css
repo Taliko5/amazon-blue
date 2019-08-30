@@ -17,14 +17,7 @@ body {
     cursor: pointer;
 }
 
-
-#shipping {
-    /* background-color: #ffcf0f;
-    /* position: absolute; */
-    top: 50%;
-    left: 50%;
-}
-
+/* firstpage */
 .startScreen {
     top: 50%;
     left: 50%;
@@ -61,6 +54,7 @@ body {
 
 }
 
+/* second page */
 .instructionScreen {
     text-align: center;
     display: none;
@@ -79,6 +73,7 @@ body {
 
 }
 
+/* endgame page */
 .endGame {
     position: fixed;
     padding: 100px;

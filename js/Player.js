@@ -8,8 +8,8 @@ class Player {
 
     setup() {
 
-        this.width = 346 / 7;
-        this.height = 600 / 7;
+        this.width = 346 / 8;
+        this.height = 600 / 8;
 
     }
 
