@@ -4,12 +4,14 @@ let amazonBox;
 let playerImg;
 let index;
 let instruction;
+let mouse;
 
 
 function preload() {
     //sound
     catVoice = loadSound("sound/catvoice.mp3");
-    bgm = loadSound("sound/bgsound02.mp3")
+    bgm = loadSound("sound/bgsound01.mp3")
+    mouse = loadSound("sound/mouse.mp3")
     // game.obstacles1.forEach(e => e.setup());
     //images
     amazonBox = loadImage("img/amazon/box1.png");

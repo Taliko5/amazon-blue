@@ -5,7 +5,7 @@ class Game {
         this.goods = [];
         this.obstacles = [];
         this.getPoint = 0;
-        this.timeLimit = 3;
+        this.timeLimit = 120;
         this.getPrice = 0;
 
     }
@@ -35,8 +35,8 @@ class Game {
 
         //BGM when the game starts
         if (startGame) {
-            if (!catVoice.isPlaying()) {
-                catVoice.play()
+            if (!bgm.isPlaying()) {
+                bgm.play()
 
             }
         }
@@ -61,7 +61,7 @@ class Game {
                 this.goods.splice(index, 1)
                 this.getPrice += good.goodsPrice
                 this.getPoint += 1;
-                catVoice.play();
+                mouse.play();
 
                 // cat food * 5  inclease 5sec 
                 this.getPoint % 5 === 0 ? this.timeLimit += 5 : this.timeLimit;
@@ -102,6 +102,7 @@ class Game {
                     image(playerDameged, this.x, this.y, amazonBox.width / 3, amazonBox.height / 3)
                     this.timeLimit -= 3
                     this.obstacles[idx].switch = 1
+                    catVoice.play();
 
                 }
             }
@@ -141,7 +142,6 @@ class Game {
       `
             //when clicking the button  the game start
             document.querySelector('.restart').onclick = () => {
-                this.timeLimit = 60;
                 document.querySelector('.endGame').style.display = "none";
                 location.reload();
 

@@ -8,15 +8,15 @@ class Player {
 
     setup() {
 
-        this.width = 346 / 6;
-        this.height = 600 / 6;
+        this.width = 346 / 7;
+        this.height = 600 / 7;
 
     }
 
     draw() {
         this.move();
 
-        image(playerImg, this.x, this.y, playerImg.width / 6, playerImg.height / 6);
+        image(playerImg, this.x, this.y, playerImg.width / 7, playerImg.height / 7);
 
         // fill('white')
         // triangle(300, 90, 330, 10, 360, 90);;
@@ -30,7 +30,7 @@ class Player {
         if (keyIsDown(37) && this.x > innerWidth / 4 + 5)
             this.x -= 5;
         // go right
-        if (keyIsDown(39) && (this.x + 100) < innerWidth * 4 / 5  - 4 )
+        if (keyIsDown(39) && (this.x + 100) < innerWidth * 4 / 5 - 4)
             this.x += 5;
         // go up
         if (keyIsDown(40))
