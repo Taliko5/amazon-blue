@@ -37,7 +37,6 @@ class Game {
         if (startGame) {
             if (!bgm.isPlaying()) {
                 bgm.play()
-
             }
         }
         this.player.draw();
@@ -99,8 +98,8 @@ class Game {
             const hittedBox = this.obstacles[idx].switch;
             if (hittedBox === 0) {
                 if (this.colisionBox(obst, this.player)) {
-                    image(playerDameged, this.x, this.y, amazonBox.width / 3, amazonBox.height / 3)
                     this.timeLimit -= 3
+                    this.obstacles.splice(index, 1)
                     this.obstacles[idx].switch = 1
                     catVoice.play();
 

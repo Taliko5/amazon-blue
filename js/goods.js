@@ -64,7 +64,7 @@ class GoodsGreen extends Goods {
         ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
         //motion (random)
-        this.y -= random(7, -7);
+        this.y -= random(-7, 12);
         if (this.y <= 1) {
             this.y = innerHeight;
         }
@@ -97,7 +97,7 @@ class GoodsRed extends Goods {
         ellipse(this.x, this.y, this.goodWidth, this.goodHeight);
 
         //motion (random)
-        this.y -= random(0, -6);
+        this.y -= random(-6, 15);
         if (this.y <= 1) {
             this.y = innerHeight;
         }
