@@ -28,23 +28,71 @@ body {
 .startScreen {
     top: 50%;
     left: 50%;
+    height: 100vh;
     text-align: center;
     display: block;
+    background-color: #a1a1a1;
+}
+
+.startScreen img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+
+}
+
+.startScreen .btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+
 }
 
 .instructionScreen {
-    top: 50%;
-    left: 50%;
     text-align: center;
     display: none;
+    background-color: #6947ff;
+    height: 100vh;
+
+}
+
+.instructionScreen img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+
 }
 
 .endGame {
     position: fixed;
+    padding: 100px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #ffc526;
     text-align: center;
     display: none;
+}
+
+.endGame .text-end {
+    display: flex-box;
+    justify-content: center;
+
+
 }

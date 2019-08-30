@@ -30,7 +30,7 @@ class Player {
         if (keyIsDown(37) && this.x > innerWidth / 4 + 5)
             this.x -= 5;
         // go right
-        if (keyIsDown(39) && (this.x + 100) < innerWidth * 3 / 4 - 5)
+        if (keyIsDown(39) && (this.x + 100) < innerWidth * 4 / 5  - 4 )
             this.x += 5;
         // go up
         if (keyIsDown(40))
