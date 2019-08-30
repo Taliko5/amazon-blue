@@ -95,16 +95,16 @@ class Game {
             obst.draw()
 
             //  colision  amazonbox reduce 3sec change img
-            const hittedBox = this.obstacles[idx].switch;
-            if (hittedBox === 0) {
-                if (this.colisionBox(obst, this.player)) {
-                    this.timeLimit -= 3
-                    this.obstacles.splice(index, 1)
-                    this.obstacles[idx].switch = 1
-                    catVoice.play();
+            // const hittedBox = this.obstacles[idx].switch;
+            // if (hittedBox === 0) {
+            if (this.colisionBox(obst, this.player)) {
+                this.timeLimit -= 3
+                console.log(index)
+                this.obstacles.splice(idx, 1)
+                catVoice.play();
 
-                }
             }
+            // }
 
         })
 

@@ -31,8 +31,4 @@
      }
 
 
-
  }
-
-
- //  document.querySelector('.startGame').onclick = function () {
