@@ -10,9 +10,11 @@ blue cat food : $30
 green cat food : $50
 red cat food : $120
 
-timelimit :60 sec
+timelimit : 120 sec
 
 when the player hits amazon-boxes 3sec will be reduced.
+
+every 5 cat foods the player gets 5sec 
 
 
 
@@ -32,7 +34,7 @@ unsolved problems : player goes through the amazonBoxes
                     
                     
 next tasks :  fixing problems
-              creating 2 top pages with css 
+              creating 2nd top pages with css 
 
         
               
