@@ -1,4 +1,8 @@
 
+
+you can play the game here
+https://noliko-zwa.github.io/amazon-blue/
+
 within 60 sec get cat-foods avoid Amazon-boxes!
 
 player: a drop
